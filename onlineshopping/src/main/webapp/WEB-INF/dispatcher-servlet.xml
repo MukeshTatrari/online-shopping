@@ -11,6 +11,8 @@ xmlns:mvc="http://www.springframework.org/schema/mvc"
    ">
   
   <context:component-scan base-package = "com.mukesh.onlineshopping.controller" />
+  <context:component-scan base-package = "import com.mukesh.shoppingbackend.daoimpl;" />
+  
   
   
    <bean id = "viewResolver"
