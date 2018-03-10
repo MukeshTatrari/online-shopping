@@ -12,7 +12,10 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.3.6.RELEASE</spring.version>
+<<<<<<< HEAD
 		<hibernate.version>5.2.7.Final</hibernate.version>
+=======
+>>>>>>> refs/remotes/origin/master
 	</properties>
 
 	<dependencies>
@@ -31,6 +34,7 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+<<<<<<< HEAD
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -64,6 +68,8 @@
 		</dependency>
 
 
+=======
+>>>>>>> refs/remotes/origin/master
 	</dependencies>
 
 	<build>
