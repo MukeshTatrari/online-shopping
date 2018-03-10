@@ -1,4 +1,5 @@
 package com.mukesh.onlineshopping.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,7 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mukesh.shoppingbackend.dao.CategoryDAO;
 import com.mukesh.shoppingbackend.dto.Category;
-
 
 @Controller
 public class PageController {
