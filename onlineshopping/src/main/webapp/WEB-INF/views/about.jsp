@@ -7,7 +7,9 @@
 		
 		<p1 > 
 		
-		This is an about us Page </p1>
+		This is an about us Page 
+		
+		</p1>
 		
 
 	</div>
