@@ -72,6 +72,11 @@
 				<%@include file="listProducts.jsp"%>
 			</c:if>
 
+			<!-- include productDetail.jsp  only when user clicked list single product-->
+			<c:if
+				test="${userClickShowProduct == true}">
+				<%@include file="productDetail.jsp"%>
+			</c:if>
 		</div>
 
 		<!-- Page Content end  here  -->

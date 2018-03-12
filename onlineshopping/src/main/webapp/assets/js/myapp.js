@@ -84,7 +84,13 @@ $(function() {
 
 							},
 							{
-								data : 'quantity'
+								data : 'quantity',
+								mRender : function(data, type, row) {
+									if(data<1)
+										{
+										return '<span color> </span>'
+										}
+								}
 							},
 							{
 								data : 'id',
