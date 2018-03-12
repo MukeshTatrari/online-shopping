@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.3.6.RELEASE</spring.version>
 		<hibernate.version>5.2.7.Final</hibernate.version>
-
+		<jackson.version>2.8.7</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -61,6 +61,7 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.196</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- hibernate Dependency -->
@@ -93,6 +94,19 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.7.25</version>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 
 

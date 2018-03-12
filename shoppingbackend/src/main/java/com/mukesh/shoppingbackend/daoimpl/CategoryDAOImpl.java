@@ -13,11 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mukesh.shoppingbackend.dao.CategoryDAO;
 import com.mukesh.shoppingbackend.dto.Category;
 
-@Repository("categoryDAO")
 @Transactional
+@Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(CategoryDAOImpl.class);
+	 private static final Logger LOGGER = LoggerFactory.getLogger(CategoryDAOImpl.class);
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -27,8 +26,10 @@ public class CategoryDAOImpl implements CategoryDAO {
 	 */
 	@Override
 	public List<Category> getAllCategories() {
-		String fectActiveCategories = "FROM Category where active = :active";
-		Query query = sessionFactory.getCurrentSession().createQuery(fectActiveCategories);
+
+		String selectActiveCategory = "FROM Category WHERE is_active = :active";
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				selectActiveCategory);
 		query.setParameter("active", true);
 		return query.getResultList();
 	}
@@ -37,9 +38,10 @@ public class CategoryDAOImpl implements CategoryDAO {
 	 * getting the Single category based on categoryId
 	 */
 	@Override
-	public Category getCategory(int categoryId) {
+	public Category getCategory(int id) {
 
-		return sessionFactory.getCurrentSession().get(Category.class,Integer.valueOf(categoryId));
+		return sessionFactory.getCurrentSession().get(Category.class,
+				Integer.valueOf(id));
 
 	}
 
@@ -52,7 +54,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			return true;
 
 		} catch (Exception ex) {
-			LOGGER.info("Exception in adding the Category ::" + ex);
+			 LOGGER.info("Exception in adding the Category ::" + ex);
 			return false;
 		}
 	}
@@ -68,7 +70,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			return true;
 
 		} catch (Exception ex) {
-			LOGGER.info("Exception in adding the Category ::" + ex);
+			 LOGGER.info("Exception in updating the Category ::" + ex);
 			return false;
 		}
 	}
@@ -82,7 +84,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			return true;
 
 		} catch (Exception ex) {
-			LOGGER.info("Exception in adding the Category ::" + ex);
+			 LOGGER.info("Exception in removing the Category ::" + ex);
 			return false;
 		}
 	}

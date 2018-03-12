@@ -7,13 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mukesh.shoppingbackend.dao.CategoryDAO;
+import com.mukesh.shoppingbackend.dao.ProductDAO;
 import com.mukesh.shoppingbackend.dto.Category;
+import com.mukesh.shoppingbackend.dto.Product;
 
 @Controller
 public class PageController {
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 	
 	/**
 	 * 
@@ -100,6 +105,32 @@ public class PageController {
 		//passing a single category
 		mv.addObject("category", category);
 		mv.addObject("userClickCategoryProducts", true);
+		return mv;
+		
+	}
+	
+	/**
+	 * 
+	 * @return
+	 *  To load all the Products based on category
+	 */
+	@RequestMapping(value = {"/show/{id}/product"})
+	public ModelAndView showProductDetail(@PathVariable("id") int id){
+		
+		ModelAndView mv = new ModelAndView("page");
+		
+		//ProductDAO to fetch the single Product
+		
+		Product product = productDAO.getProduct(id);		
+		//update the view count of the product
+		product.setViews(product.getViews() + 1);
+		productDAO.updateProduct(product);
+		
+		mv.addObject("title", product.getName());
+		//passing the product to View
+		mv.addObject("product", product);
+		
+		mv.addObject("userClickShowProduct", true);
 		return mv;
 		
 	}

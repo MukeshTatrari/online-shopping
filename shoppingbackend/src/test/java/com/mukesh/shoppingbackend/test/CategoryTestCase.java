@@ -32,7 +32,7 @@ public class CategoryTestCase {
 		category.setDescription("This is Some description for "+categoryName);
 		category.setImageURL("CAT_"+categoryName+".png");
 		
-		assertEquals("Successfully added the category inside Table!",true,categoryDAO.addCategory(category));
+		assertEquals("Something went wrong while inserting Category inside Table!",true,categoryDAO.addCategory(category));
 	}
 	
 //	@Test
@@ -44,7 +44,7 @@ public class CategoryTestCase {
 //		category.setDescription("This is Some description for "+categoryName);
 //		category.setImageURL("CAT_"+categoryName+".png");
 //		
-//		assertEquals("Successfully added the category inside Table!",true,categoryDAO.addCategory(category));
+//		assertEquals("Something went wrong while inserting Category inside Table!",true,categoryDAO.addCategory(category));
 //	}
 	
 	
@@ -53,7 +53,7 @@ public class CategoryTestCase {
 	public void testGetCategory()
 	{
 		category = categoryDAO.getCategory(1);
-		assertEquals("Successfully fetched the single category from Table!","Television",category.getName());
+		assertEquals("Something went wrong while fetching the Category from Table!","Television",category.getName());
 		
 	}
 	
@@ -62,7 +62,7 @@ public class CategoryTestCase {
 	{
 		category = categoryDAO.getCategory(1);
 		category.setName("TV");
-		assertEquals("Successfully updated a single category in the Table!",true,categoryDAO.updateCategory(category));
+		assertEquals("Something went wrong while updating the Category in Table!",true,categoryDAO.updateCategory(category));
 		
 	}
 
@@ -70,7 +70,7 @@ public class CategoryTestCase {
 	public void testDeleteCategory()
 	{
 		category = categoryDAO.getCategory(1);
-		assertEquals("Successfully deleted a single category from the Table!",true,categoryDAO.deleteCategory(category));
+		assertEquals("Something went wrong while deleting the Category from Table!",true,categoryDAO.deleteCategory(category));
 		
 	}
 	
@@ -78,7 +78,7 @@ public class CategoryTestCase {
 //	public void testgetAllCategories()
 //	{
 //		
-//		assertEquals("Successfully fetched all active categories from the Table!",3,categoryDAO.getAllCategories().size());
+//		assertEquals("Something went wrong while fetching the Categories from Table!",3,categoryDAO.getAllCategories().size());
 //		
 //	}
 	

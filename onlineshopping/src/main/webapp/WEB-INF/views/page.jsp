@@ -22,6 +22,7 @@
 <title>Online Shopping - ${title}</title>
 <script>
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
 </script>
 
 <!-- Bootstrap core CSS -->
@@ -32,6 +33,9 @@
 
 <!-- Bootstrap redable theme CSS -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!-- data table  CSS -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 </head>
 
@@ -61,12 +65,13 @@
 			<c:if test="${userClickContact == true}">
 				<%@include file="contact.jsp"%>
 			</c:if>
-			
+
 			<!-- include listProducts.jsp  only when user clicked list products or categoryProducts-->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
-			
+
 		</div>
 
 		<!-- Page Content end  here  -->
@@ -78,6 +83,12 @@
 		<!-- JavaScript -->
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.js"></script>
+
+		<!-- data tables js included -->
+		<script src="${js}/jquery.dataTables.js"></script>
+
+		<!-- data tables bootStrap js included -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
 
 		<!-- self coded JS file -->
 		<script src="${js}/myapp.js"></script>

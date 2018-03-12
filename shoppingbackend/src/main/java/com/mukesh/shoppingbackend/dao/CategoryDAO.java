@@ -8,7 +8,7 @@ import com.mukesh.shoppingbackend.dto.Category;
 public interface CategoryDAO {
 	
 	List<Category> getAllCategories();
-	Category getCategory(int categoryId);
+	Category getCategory(int id);
 	boolean addCategory(Category category);
 
 	boolean updateCategory(Category category);
