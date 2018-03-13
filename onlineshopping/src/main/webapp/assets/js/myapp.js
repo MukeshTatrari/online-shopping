@@ -13,6 +13,10 @@ $(function() {
 	case 'All Products':
 		$("#listProducts").addClass('active');
 		break;
+		
+	case 'Manage Products':
+		$("#manageProducts").addClass('active');
+		break;
 
 	default:
 		if (menu == "Home")
@@ -65,9 +69,11 @@ $(function() {
 					},
 					columns : [
 							{
-								data:'code',
+								data : 'code',
 								mRender : function(data, type, row) {
-									return '<img src ="'+window.contextRoot+'/resources/images/'+data+'.jpg" class ="dataTableImg"/>'
+									return '<img src ="' + window.contextRoot
+											+ '/resources/images/' + data
+											+ '.jpg" class ="dataTableImg"/>'
 								}
 							},
 							{
@@ -86,10 +92,10 @@ $(function() {
 							{
 								data : 'quantity',
 								mRender : function(data, type, row) {
-									if(data<1)
-										{
-										return '<span color> </span>'
-										}
+									if (data < 1) {
+										return '<span style= "color:red">Out Of Stock! </span>'
+									}
+									return data;
 								}
 							},
 							{
@@ -102,12 +108,18 @@ $(function() {
 											+ '/show/'
 											+ data
 											+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
-									str += '<a href ="'
-											+ window.contextRoot
-											+ '/show/'
-											+ data
-											+ '/product" class = "btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
 
+									if (row.quantity < 1) {
+
+										str += '<a href = "javascript:void(0)" class = "btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart "></span></a>';
+
+									} else {
+										str += '<a href ="'
+												+ window.contextRoot
+												+ '/show/'
+												+ data
+												+ '/product" class = "btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+									}
 									return str;
 								}
 							}
@@ -116,4 +128,16 @@ $(function() {
 				});
 
 	}
-})
+	
+	//dismissing the alert in 3 seconds
+	
+	
+	var $alert = $(".alret");
+	
+	if($alert.lenght)
+		{
+		  setTimeout(function(){
+			  $alert.fadeOut("slow");
+		  },3000)
+		}
+});
