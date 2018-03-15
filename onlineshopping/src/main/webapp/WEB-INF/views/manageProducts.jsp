@@ -25,7 +25,7 @@
 				</div>
 
 				<div class="panel-body">
-					<sf:form class="form-horizontal" modelAttribute="product" action="${contextRoot}/manage/product" method="POST" enctype="multipart/form-data">
+					<sf:form class="form-horizontal" modelAttribute="product" action="${contextRoot}/manage/products" method="POST">
 						<div class="form-group">
 							<label class="control-label col-md-4">Name</label>
 							<div class="col-md-8">

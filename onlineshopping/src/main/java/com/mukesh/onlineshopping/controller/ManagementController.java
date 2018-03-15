@@ -31,7 +31,7 @@ public class ManagementController {
 	@Autowired
 	ProductDAO productDAO;
 
-	@RequestMapping(value = "/product", method = RequestMethod.GET)
+	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public ModelAndView showManageProducts(@RequestParam(name = "operation", required = false) String operation) {
 		ModelAndView mv = new ModelAndView("page");
 
@@ -61,12 +61,13 @@ public class ManagementController {
 	 * 
 	 * handling product submission
 	 */
-	@RequestMapping(value = "/product", method = RequestMethod.POST)
+	@RequestMapping(value = "/products", method = RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mproduct, BindingResult results,
 					Model model) {
 
 		LOGGER.info("inside handleProductSubmission");
 		if (results.hasErrors()) {
+			LOGGER.info("product validation failed " + results);
 
 			model.addAttribute("userClickManageProducts", true);
 			model.addAttribute("title", "Manage Products");
