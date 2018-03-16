@@ -98,9 +98,13 @@
 
 		<!-- data tables bootStrap js included -->
 		<script src="${js}/dataTables.bootstrap.js"></script>
+		
+		<!-- boot box  JS file -->
+		<script src="${js}/bootbox.min.js"></script>
 
 		<!-- self coded JS file -->
-		<script src="${js}/myapp.js"></script>
+		<script src="${js}/myapp.js"></script>	
+		
 	</div>
 </body>
 

@@ -32,4 +32,10 @@ public class JsonDataController {
 	public List<Product> getAllProductsByCategory(@PathVariable int id) {
 		return productDAO.getActiveProductByCategory(id);
 	}
+	
+	@RequestMapping("/admin/all/products")
+	@ResponseBody
+	public List<Product> getAllProductsForAdmin() {
+		return productDAO.getProducts();
+	}
 }
