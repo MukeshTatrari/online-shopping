@@ -131,11 +131,11 @@ $(function() {
 
 										} else {
 
-											str += '<a href ="'
+											str += '<a href="'
 													+ window.contextRoot
-													+ '/show/'
+													+ '/cart/add/'
 													+ data
-													+ '/product" class = "btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+													+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
 										}
 									}
 
@@ -482,6 +482,15 @@ if ($loginForm.length) {
 
 }
 
+/*------*/
+/* for fading out the alert message after 3 seconds */
+$alert = $('.alert');
+if ($alert.length) {
+	setTimeout(function() {
+		$alert.fadeOut('slow');
+	}, 3000);
+}
+
 // ====================================================================
 // ==========handling the click event of refresh cart button ==========
 // ====================================================================
@@ -514,9 +523,11 @@ $('button[name="refreshCart"]')
 									})
 						} else {
 
-							var updateUrl = window.contextRoot + '/cart/'+ cartLineId +'/update?count' + currentCount;
-							
-							window.location.href=updateUrl;
+							var updateUrl = window.contextRoot + '/cart/'
+									+ cartLineId + '/update?count='
+									+ currentCount;
+
+							window.location.href = updateUrl;
 						}
 
 					}
