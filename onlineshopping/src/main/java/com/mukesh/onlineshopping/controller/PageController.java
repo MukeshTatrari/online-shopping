@@ -1,19 +1,31 @@
 package com.mukesh.onlineshopping.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mukesh.onlineshopping.exception.ProductNotFoundException;
 import com.mukesh.shoppingbackend.dao.CategoryDAO;
 import com.mukesh.shoppingbackend.dao.ProductDAO;
+import com.mukesh.shoppingbackend.daoimpl.CategoryDAOImpl;
 import com.mukesh.shoppingbackend.dto.Category;
 import com.mukesh.shoppingbackend.dto.Product;
+import com.mukesh.shoppingbackend.dto.User;
 
 @Controller
 public class PageController {
+	private static final Logger LOGGER = LoggerFactory.getLogger(PageController.class);
 
 	@Autowired
 	private CategoryDAO categoryDAO;
@@ -84,6 +96,31 @@ public class PageController {
 	 * 
 	 * @return To load all the Products based on category
 	 */
+	@RequestMapping(value = { "/login" })
+	public ModelAndView login(@RequestParam(name="error", required = false)	String error,
+					@RequestParam(name="logout", required = false)	String logout){
+
+		ModelAndView mv = new ModelAndView("login");
+		if (error != null) {
+			LOGGER.info("error ::"+error);
+			LOGGER.info("error ::"+error);
+			mv.addObject("message", "Invalid Username and Password !");
+		}
+		
+		if(logout!=null)
+		{
+			mv.addObject("message", "User has Successfully logged out!");
+		}
+
+		mv.addObject("title", "Login");
+		return mv;
+
+	}
+
+	/**
+	 * 
+	 * @return To load all the Products based on category
+	 */
 	@RequestMapping(value = { "/show/category/{id}/products" })
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 
@@ -109,8 +146,7 @@ public class PageController {
 	 * @return To load all the Products based on category
 	 */
 	@RequestMapping(value = { "/show/{id}/product" })
-	public ModelAndView showProductDetail(@PathVariable("id") int id)
-			throws ProductNotFoundException {
+	public ModelAndView showProductDetail(@PathVariable("id") int id) throws ProductNotFoundException {
 
 		ModelAndView mv = new ModelAndView("page");
 
@@ -132,5 +168,38 @@ public class PageController {
 		mv.addObject("userClickShowProduct", true);
 		return mv;
 
+	}
+
+	/**
+	 * 
+	 * @return access-denied
+	 */
+	@RequestMapping(value = { "/access-denied" })
+	public ModelAndView accessDenied() {
+
+		ModelAndView mv = new ModelAndView("error");
+		mv.addObject("title", "403 Access - Denied !");
+		mv.addObject("errorTitle", "opppssss something is wrong!");
+		mv.addObject("errorDescription", "You are not Authorized to view this page !");
+		return mv;
+
+	}
+	
+	/**
+	 * 
+	 * @return display contact us page
+	 */
+	@RequestMapping(value = { "/perform-logout" })
+	public String logout(HttpServletRequest request,HttpServletResponse response) {
+
+		//first we will fetch the Authentication object
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if(authentication!=null)
+		{
+			new SecurityContextLogoutHandler().logout(request, response, authentication);;
+		}
+
+		return "redirect:/login?logout";
 	}
 }

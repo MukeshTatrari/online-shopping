@@ -56,6 +56,9 @@ public class ManagementController {
 			if (operation.equals("product")) {
 				mv.addObject("message", "Product Added Successfully !");
 			}
+			else if (operation.equals("category")) {
+				mv.addObject("message", "Category Added Successfully !");
+			}
 		}
 
 		return mv;
@@ -74,14 +77,17 @@ public class ManagementController {
 		LOGGER.info("inside handleProductSubmission");
 
 		if (mproduct.getId() == 0) {
+			LOGGER.info("inside mProduct if " +mproduct.getId());
 			new ProductValidator().validate(mproduct, results);
 		}
 		else
 		{
-			if(!mproduct.getFile().getOriginalFilename().equals(""))
-			{
+			LOGGER.info("inside mProduct else file name " +mproduct.getFile().getOriginalFilename());
+			// edit check only when the file has been selected
+			if(!mproduct.getFile().getOriginalFilename().equals("")) {
+				LOGGER.info("inside mProduct elseee " +mproduct.getId());
 				new ProductValidator().validate(mproduct, results);
-			}
+			}		
 		}
 
 		if (results.hasErrors()) {
@@ -164,4 +170,20 @@ public class ManagementController {
 
 	}
 
+	@ModelAttribute("category")
+	public Category getCategory() {
+		return new Category();
+
+	}
+	
+	// to handle Category Submission
+	
+	@RequestMapping(value = "/category", method = RequestMethod.POST)
+	public String handleCategorySubmission(@ModelAttribute Category category) {
+		
+		//add a new category
+		categoryDAO.addCategory(category);
+		
+		return "redirect:/manage/products?operation=category";
+	}
 }
