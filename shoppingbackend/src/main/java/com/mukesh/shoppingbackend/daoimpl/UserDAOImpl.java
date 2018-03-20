@@ -95,9 +95,19 @@ public class UserDAOImpl implements UserDAO {
 		query.setParameter("shipping", true);
 		try {
 			return query.getResultList();
-			
+
 		} catch (Exception ex) {
 			LOGGER.error("Error in fetching the Address " + ex);
+			return null;
+		}
+	}
+
+	@Override
+	public Address getAddress(int addressId) {
+		try {
+			return sessionFactory.getCurrentSession().get(Address.class, addressId);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
 			return null;
 		}
 	}

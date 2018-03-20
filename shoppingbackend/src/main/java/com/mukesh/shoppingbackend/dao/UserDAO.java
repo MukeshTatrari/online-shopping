@@ -18,6 +18,8 @@ public interface UserDAO {
 	//add an Address
 	public boolean addAddress(Address address);
 	
+	public Address getAddress(int addressId);
+	
 	public Address getBillingAddress(int useId);
 	
 	public List<Address> getShippingAddresses(int userId);

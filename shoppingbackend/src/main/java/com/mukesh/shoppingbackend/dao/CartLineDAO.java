@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mukesh.shoppingbackend.dto.Cart;
 import com.mukesh.shoppingbackend.dto.CartLine;
+import com.mukesh.shoppingbackend.dto.OrderDetail;
 
 public interface CartLineDAO {
 
@@ -24,5 +25,5 @@ public interface CartLineDAO {
 	public List<CartLine> listAvailable(int cartId);
 	
 	// adding order details
-//	boolean addOrderDetail(OrderDetail orderDetail);
+	boolean addOrderDetail(OrderDetail orderDetail);
 }

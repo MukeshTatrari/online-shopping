@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mukesh.shoppingbackend.dao.CartLineDAO;
 import com.mukesh.shoppingbackend.dto.Cart;
 import com.mukesh.shoppingbackend.dto.CartLine;
+import com.mukesh.shoppingbackend.dto.OrderDetail;
 
 @Repository("cartLineDAO")
 @Transactional
@@ -21,8 +22,7 @@ public class CartLineDAOImpl implements CartLineDAO {
 	@Override
 	public List<CartLine> listCartLines(int cartId) {
 		String query = "FROM CartLine WHERE cartId = :cartId";
-		return sessionFactory.getCurrentSession().
-						createQuery(query, CartLine.class).setParameter("cartId", cartId)
+		return sessionFactory.getCurrentSession().createQuery(query, CartLine.class).setParameter("cartId", cartId)
 						.getResultList();
 	}
 
@@ -67,14 +67,11 @@ public class CartLineDAOImpl implements CartLineDAO {
 	public CartLine getByCartAndProduct(int cartId, int productId) {
 		String query = "FROM CartLine WHERE cartId = :cartId AND product.id = :productId";
 		try {
-			
-			return sessionFactory.getCurrentSession()
-									.createQuery(query,CartLine.class)
-										.setParameter("cartId", cartId)
-										.setParameter("productId", productId)
-											.getSingleResult();
-			
-		}catch(Exception ex) {
+
+			return sessionFactory.getCurrentSession().createQuery(query, CartLine.class).setParameter("cartId", cartId)
+							.setParameter("productId", productId).getSingleResult();
+
+		} catch (Exception ex) {
 			return null;
 		}
 	}
@@ -92,10 +89,19 @@ public class CartLineDAOImpl implements CartLineDAO {
 	@Override
 	public List<CartLine> listAvailable(int cartId) {
 		String query = "FROM CartLine WHERE cartId = :cartId AND available = :available";
-		return sessionFactory.getCurrentSession().
-						createQuery(query, CartLine.class).setParameter("cartId", cartId)
+		return sessionFactory.getCurrentSession().createQuery(query, CartLine.class).setParameter("cartId", cartId)
 						.setParameter("available", true).getResultList();
 
+	}
+
+	@Override
+	public boolean addOrderDetail(OrderDetail orderDetail) {
+		try {
+			sessionFactory.getCurrentSession().persist(orderDetail);
+			return true;
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 
 }
