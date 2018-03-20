@@ -21,5 +21,7 @@ public interface ProductDAO {
 	//get Latest Products by Count
 	public List<Product>getLatestActiveProducts(int count);
 	
+	List<Product> getProductsByParam(String param, int count);	
+	
 
 }
