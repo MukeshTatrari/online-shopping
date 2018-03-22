@@ -15,7 +15,7 @@ $(function() {
 		break;
 
 	case 'Manage Products':
-		$("#manageProducts").addClass('active');
+		$("#manageProduct").addClass('active');
 		break;
 
 	case 'User Cart':
@@ -25,7 +25,6 @@ $(function() {
 	default:
 		if (menu == "Home")
 			break;
-
 		$("#listProducts").addClass('active');
 		$("#a_" + menu).addClass('active');
 		break;
