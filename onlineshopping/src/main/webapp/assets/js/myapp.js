@@ -533,3 +533,97 @@ $('button[name="refreshCart"]')
 					}
 
 				});
+
+// =======================================================================================================
+// =============================================Sending an
+// Email==========================================
+// =======================================================================================================
+
+function sendMail() {
+	$.ajax({
+		type : 'POST',
+		url : 'https://mandrillapp.com/api/1.0/messages/send.json',
+		data : {
+			'key' : 'YOUR API KEY HERE',
+			'message' : {
+				'from_email' : 'mukesh.tatrari@gmail.com',
+				'to' : [ {
+					'email' : 'mukesh.tatrari@gmail.com',
+					'name' : 'RECIPIENT NAME (OPTIONAL)',
+					'type' : 'to'
+				} ],
+				'autotext' : 'true',
+				'subject' : 'YOUR SUBJECT HERE!',
+				'html' : 'YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!'
+			}
+		}
+	}).done(function(response) {
+		console.log(response); // if you're into that sorta thing
+	});
+}
+
+$contactUSForm = $('#contactUs');
+
+if ($contactUSForm.length) {
+
+	$contactUSForm.validate({
+		rules : {
+			name : {
+				required : true,
+				minlength : 5
+			},
+			email : {
+				required : true,
+				email : true,
+				minlength : 5
+			},
+
+			Subject : {
+				required : true,
+				minlength : 5
+			},
+
+			phone : {
+				required : true,
+				minlength : 10
+			},
+			
+			message: {
+				required : true,
+				minlength : 10
+			}
+		},
+		messages : {
+			name : {
+				required : 'Please enter your name!',
+				minlength : 'Please enter atleast five characters'
+			},
+			email : {
+				required : 'Please enter your email!',
+				email : 'Please enter valid Email Address!',
+				minlength : 'Please enter atleast five characters'
+			},
+
+			Subject : {
+				required : 'Please enter  a Subject !',
+				minlength : 'Please enter atleast five characters'
+			},
+			phone : {
+				required : 'Please enter your phone!',
+				minlength : 'phone number should be atleast 10 characters'
+			},
+			message: {
+				required : 'Please enter your message!',
+				minlength : 'Message should be atleast 5 characters'
+			}
+
+		},
+		errorElement : "em",
+		errorPlacement : function(error, element) {
+			errorPlacement(error, element);
+		}
+	}
+
+	);
+
+}

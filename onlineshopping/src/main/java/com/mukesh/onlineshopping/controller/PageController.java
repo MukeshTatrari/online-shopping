@@ -12,6 +12,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -63,19 +64,7 @@ public class PageController {
 
 	}
 
-	/**
-	 * 
-	 * @return display contact us page
-	 */
-	@RequestMapping(value = { "/contact" })
-	public ModelAndView contact() {
 
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("title", "Contact Us");
-		mv.addObject("userClickContact", true);
-		return mv;
-
-	}
 
 	/**
 	 * 

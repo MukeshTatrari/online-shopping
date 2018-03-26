@@ -49,7 +49,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-4">Contact Number</label>
 							<div class="col-md-8">
-								<sf:input type="text" path="contactNumber" class="form-control"
+								<sf:input type="number" path="contactNumber" class="form-control"
 									placeholder="XXXXXXXXXX" maxlength="10" />
 								<sf:errors path="contactNumber" cssClass="help-block"
 									element="em" />
