@@ -261,3 +261,14 @@ input:checked+.slider:before {
 .unavailable {
 	color: red;
 }
+
+/* holidays plan  css */
+.hidden {
+	display: none;
+}
+
+.visible {
+	visibility: visible;
+	opacity: 1;
+	position:absolute;
+}

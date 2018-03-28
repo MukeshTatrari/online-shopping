@@ -626,3 +626,22 @@ if ($contactUSForm.length) {
 	);
 
 }
+
+
+//===============================================================================================\
+//==================================Holiday Plan JS=============================================
+//===============================================================================================
+
+
+//$('#travelPlan').hover(function() {
+//	console.log("Hellloooo");
+//	$('#travelSubMenu').removeClass('hide');
+//	$('#travelSubMenu').addClass('visible');
+//	
+//});
+
+$("#travelPlan").hover(function(){
+    $('#travelSubMenu').show();
+},function(){
+    $('#travelSubMenu').hide();
+})

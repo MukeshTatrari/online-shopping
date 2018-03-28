@@ -28,7 +28,17 @@
                     <li id="listProducts">
                         <a href="${contextRoot}/show/all/products">View Products</a>
                     </li>
-					<security:authorize access="hasAuthority('ADMIN')">
+
+				<li id="travelPlan"><a href="#">Plan Your Holidays</a>
+				
+					<ul class="sub-menu hide" id = "travelSubMenu">
+						<li>Sub Item 1</li>
+						<li>Sub Item 2</li>
+						<li>Sub Item 3</li>
+					</ul>
+				</li>
+
+				<security:authorize access="hasAuthority('ADMIN')">
 	                    <li id="manageProduct">
 	                        <a href="${contextRoot}/manage/products">Manage Product</a>
 	                    </li>					
