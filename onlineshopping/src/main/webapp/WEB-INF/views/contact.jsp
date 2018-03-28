@@ -8,7 +8,7 @@
 	<c:if test="${not empty message}">
 		<div class="row">
 			<div class="col-xs-12 col-md-offset-2 col-md-8">
-				<div class="alert alert-danger fade in">${message}</div>
+				<div class="alert alert-danger fade in" style ="color: green">${message}</div>
 			</div>
 		</div>
 	</c:if>

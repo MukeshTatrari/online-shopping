@@ -586,8 +586,8 @@ if ($contactUSForm.length) {
 				required : true,
 				minlength : 10
 			},
-			
-			message: {
+
+			message : {
 				required : true,
 				minlength : 10
 			}
@@ -611,7 +611,7 @@ if ($contactUSForm.length) {
 				required : 'Please enter your phone!',
 				minlength : 'phone number should be atleast 10 characters'
 			},
-			message: {
+			message : {
 				required : 'Please enter your message!',
 				minlength : 'Message should be atleast 5 characters'
 			}
@@ -627,21 +627,16 @@ if ($contactUSForm.length) {
 
 }
 
+// ===============================================================================================\
+// ==================================Holiday Plan
+// JS=============================================
+// ===============================================================================================
 
-//===============================================================================================\
-//==================================Holiday Plan JS=============================================
-//===============================================================================================
-
-
-//$('#travelPlan').hover(function() {
-//	console.log("Hellloooo");
-//	$('#travelSubMenu').removeClass('hide');
-//	$('#travelSubMenu').addClass('visible');
-//	
-//});
-
-$("#travelPlan").hover(function(){
-    $('#travelSubMenu').show();
-},function(){
-    $('#travelSubMenu').hide();
-})
+$('#travelPlan').hover(function() {
+	console.log("Hellloooo");
+	$('#travelSubMenu').removeClass('hide');
+	$('#travelSubMenu').addClass('visible');
+}, function() {
+	$('#travelSubMenu').addClass('hide');
+	$('#travelSubMenu').removeClass('visible');
+});

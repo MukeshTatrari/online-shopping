@@ -29,12 +29,13 @@
                         <a href="${contextRoot}/show/all/products">View Products</a>
                     </li>
 
-				<li id="travelPlan"><a href="#">Plan Your Holidays</a>
+				<li id="travelPlan"><a href="#">Plan Your Holidays<small>
+				<span class = "glyphicon glyphicon-chevron-down v-centered"></span></small></a>
 				
-					<ul class="sub-menu hide" id = "travelSubMenu">
-						<li>Sub Item 1</li>
-						<li>Sub Item 2</li>
-						<li>Sub Item 3</li>
+					<ul class="hide list-unstyled" id = "travelSubMenu">
+						<li <i style="padding-left:10px"></i> >Uttarakhand</li>
+						<li <i style="padding-left:10px"</i> >Rajasthan</li>
+						<li <i style="padding-left:10px"></i> >Gujrat</li>
 					</ul>
 				</li>
 

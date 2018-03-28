@@ -263,12 +263,20 @@ input:checked+.slider:before {
 }
 
 /* holidays plan  css */
-.hidden {
+.hide {
 	display: none;
 }
 
 .visible {
-	visibility: visible;
-	opacity: 1;
-	position:absolute;
+	position: absolute;
+	margin-left:20px;
+	background: white;
+	overflow: auto;
+	z-index: 10000;
+}
+
+.glyphicon.v-centered {
+    position: inherit;
+    vertical-align: middle;
+    size:small;
 }
