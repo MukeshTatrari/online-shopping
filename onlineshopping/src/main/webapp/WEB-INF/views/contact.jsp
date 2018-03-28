@@ -1,9 +1,10 @@
-<%@include file="shared/header.jsp"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="shared/header.jsp"%>
+<!-- Add custom CSS here -->
+<link href="${css}/myapp.css" rel="stylesheet">
 
 <div class="container">
-
-
 	<c:if test="${not empty message}">
 		<div class="row">
 			<div class="col-xs-12 col-md-offset-2 col-md-8">
@@ -20,17 +21,17 @@
 
 		<div class="panel-body col-md-8">
 
-			<form method="POST" action="${contextRoot}/contact"
-				class="form-horizontal" id="contactUs">
+			<sf:form method="POST" class="form-horizontal" id="contactUs" modelAttribute="contactUs"
+			action="${contextRoot}/contact">
 
 
 				<div class="form-group">
 					<label class="control-label col-md-4" for="name"> Your Name
 					</label>
 					<div class="col-md-8">
-						<input type="text" name="name" class="form-control"
+						<sf:input type="text" path="name" class="form-control"
 							placeholder="Please Enter Your Name" />
-						<errors name="name" cssClass="help-block" element="em" />
+						<sf:errors path="name" cssClass="help-block" element="em" />
 					</div>
 				</div>
 
@@ -38,18 +39,18 @@
 					<label class="control-label col-md-4" for="email"> Your
 						Email </label>
 					<div class="col-md-8">
-						<input type="text" name="email" class="form-control"
+						<sf:input type="text" path="email" class="form-control"
 							placeholder="Please Enter Your Email" />
-						<errors name="email" cssClass="help-block" element="em" />
+						<sf:errors name="email" cssClass="help-block" element="em" />
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label col-md-4" for="Subject">Subject</label>
 					<div class="col-md-8">
-						<input type="text" name="city" class="form-control"
+						<sf:input type="text" path="subject" class="form-control"
 							placeholder="Subject" />
-						<errors name="Subject" cssClass="help-block" element="em" />
+						<sf:errors name="subject" cssClass="help-block" element="em" />
 					</div>
 				</div>
 
@@ -57,19 +58,18 @@
 					<label class="control-label col-md-4" for="phone">Phone
 						Number </label>
 					<div class="col-md-8">
-						<input type="number" name="phone" class="form-control"
+						<sf:input type="number" path="phone" class="form-control"
 							placeholder="Please Enter Your Phone" maxlength="10" />
-						<errors name="phone" cssClass="help-block" element="em" />
+						<sf:errors name="phone" cssClass="help-block" element="em" />
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label col-md-4" for="message">Message</label>
 					<div class="col-md-8">
-						<textarea name="message" class="form-control"
-							placeholder="Please Enter your Message!">
-									</textarea>
-						<errors path="message" cssClass="help-block" element="em" />
+						<sf:textarea path="message" class="form-control"
+							placeholder="Please Enter your Message!" />
+						<sf:errors path="message" cssClass="help-block" element="em" />
 					</div>
 				</div>
 
@@ -83,7 +83,7 @@
 				</div>
 
 
-			</form>
+			</sf:form>
 
 
 		</div>
