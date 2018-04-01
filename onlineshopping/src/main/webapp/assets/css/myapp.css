@@ -261,3 +261,22 @@ input:checked+.slider:before {
 .unavailable {
 	color: red;
 }
+
+/* holidays plan  css */
+.hide {
+	display: none;
+}
+
+.visible {
+	position: absolute;
+	margin-left:20px;
+	background: white;
+	overflow: auto;
+	z-index: 10000;
+}
+
+.glyphicon.v-centered {
+    position: inherit;
+    vertical-align: middle;
+    size:small;
+}

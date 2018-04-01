@@ -28,7 +28,18 @@
                     <li id="listProducts">
                         <a href="${contextRoot}/show/all/products">View Products</a>
                     </li>
-					<security:authorize access="hasAuthority('ADMIN')">
+
+				<li id="travelPlan"><a href="#">Plan Your Holidays<small>
+				<span class = "glyphicon glyphicon-chevron-down v-centered"></span></small></a>
+				
+					<ul class="hide list-unstyled" id = "travelSubMenu">
+						<li <i style="padding-left:10px"></i> >Uttarakhand</li>
+						<li <i style="padding-left:10px"</i> >Rajasthan</li>
+						<li <i style="padding-left:10px"></i> >Gujrat</li>
+					</ul>
+				</li>
+
+				<security:authorize access="hasAuthority('ADMIN')">
 	                    <li id="manageProduct">
 	                        <a href="${contextRoot}/manage/products">Manage Product</a>
 	                    </li>					
