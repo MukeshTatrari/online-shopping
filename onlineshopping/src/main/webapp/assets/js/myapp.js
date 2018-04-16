@@ -21,6 +21,11 @@ $(function() {
 	case 'User Cart':
 		$("#userCart").addClass('active');
 		break;
+		
+	case 'Places':
+		$("#travelPlan").addClass('active');
+		break;
+	
 
 	default:
 		if (menu == "Home")

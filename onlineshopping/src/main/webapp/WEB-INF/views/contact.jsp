@@ -8,7 +8,7 @@
 	<c:if test="${not empty message}">
 		<div class="row">
 			<div class="col-xs-12 col-md-offset-2 col-md-8">
-				<div class="alert alert-danger fade in" style ="color: green">${message}</div>
+				<div class="alert alert-danger fade in" style="color: green">${message}</div>
 			</div>
 		</div>
 	</c:if>
@@ -18,11 +18,20 @@
 
 		<h1>Contact Us</h1>
 		<hr />
+		<div class="col-lg-12">
+
+			<ol class="breadcrumb">
+
+				<li><a href="${contextRoot}/home">Home</a></li>
+				<li class="active">ContactUs</li>
+			</ol>
+		</div>
+
 
 		<div class="panel-body col-md-8">
 
-			<sf:form method="POST" class="form-horizontal" id="contactUs" modelAttribute="contactUs"
-			action="${contextRoot}/contact">
+			<sf:form method="POST" class="form-horizontal" id="contactUs"
+				modelAttribute="contactUs" action="${contextRoot}/contact">
 
 
 				<div class="form-group">

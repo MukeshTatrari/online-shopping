@@ -280,3 +280,8 @@ input:checked+.slider:before {
     vertical-align: middle;
     size:small;
 }
+
+.spaceforLi
+{
+	margin-bottom:10px;
+}
