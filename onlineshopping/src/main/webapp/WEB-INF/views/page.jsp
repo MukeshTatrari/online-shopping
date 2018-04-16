@@ -91,7 +91,7 @@
 				<%@include file="cart.jsp"%>
 			</c:if>
 			
-			<!-- include PlaceDetails.jsp  only when user clicked list Travel -->
+			<!-- include places.jsp  only when user clicked list Travel -->
 			<c:if test="${userClickTravel == true}">
 					<%@include file="./travels/places.jsp"%>
 			</c:if>
