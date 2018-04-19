@@ -21,11 +21,10 @@
 		<property name="suffix" value=".jsp" />
 
 	</bean>
-
+	
 	<mvc:interceptors>
 		<bean
 			class="com.mukesh.onlineshopping.interceptor.DayOfWeekBasedInterceptor" />
-
 	</mvc:interceptors>
 
 	<bean id="multipartResolver"
