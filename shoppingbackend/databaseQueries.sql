@@ -8,6 +8,16 @@ CREATE TABLE category (
 
 );
 
+CREATE TABLE TravelCategory (
+	id IDENTITY,
+	name VARCHAR(50),
+	description VARCHAR(255),
+	image_url VARCHAR(100),
+	is_active BOOLEAN,
+	CONSTRAINT pk_place_id PRIMARY KEY (id) 
+
+);
+
 CREATE TABLE user_detail (
 	id IDENTITY,
 	first_name VARCHAR(50),
@@ -114,6 +124,14 @@ CREATE TABLE order_item (
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Laptop', 'This is description for Laptop category!', 'CAT_1.png', true);
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Television', 'This is description for Television category!', 'CAT_2.png', true);
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Mobile', 'This is description for Mobile category!', 'CAT_3.png', true);
+
+-- adding 5 places
+INSERT INTO TravelCategory (name, description,image_url,is_active) VALUES ('Uttarakhand', 'This is description for Place Uttarakhand!', 'Place_1.png', true);
+INSERT INTO TravelCategory (name, description,image_url,is_active) VALUES ('Rajasthan', 'This is description for Place Rajasthan!', 'Place_2.png', true);
+INSERT INTO TravelCategory (name, description,image_url,is_active) VALUES ('Gujrat', 'This is description for place Gujrat!', 'Place_3.png', true);
+INSERT INTO TravelCategory (name, description,image_url,is_active) VALUES ('Kerala', 'This is description for place Kerala!', 'Place_4.png', true);
+INSERT INTO TravelCategory (name, description,image_url,is_active) VALUES ('Sikkim', 'This is description for place Sikkim!', 'Place_5.png', true);
+
 -- adding three users 
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 

@@ -269,24 +269,23 @@ input:checked+.slider:before {
 
 .visible {
 	position: absolute;
-	margin-left:20px;
+	margin-left: 20px;
 	background: white;
 	overflow: auto;
 	z-index: 10000;
 }
 
 .glyphicon.v-centered {
-    position: inherit;
-    vertical-align: middle;
-    size:small;
+	position: inherit;
+	vertical-align: middle;
+	size: small;
 }
 
-.spaceforLi
-{
-	margin-bottom:10px;
+.spaceforLi {
+	margin-bottom: 10px;
 }
 
-
-
-
-
+.recent-items {
+	height: 200px;
+	width: 200px;
+}

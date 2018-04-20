@@ -75,10 +75,10 @@ body {
 		
 		<div class="row is-table-row">
 
-			<div class="col-sm-3 " ng-repeat="product in pCtrl.mvProducts">
+			<div class="col-sm-4 " ng-repeat="product in pCtrl.mvProducts">
 				<div class="thumbnail">
 					<img ng-src="${images}/{{product.code}}.jpg" alt="{{product.name}}"
-						class="">
+						class="landingImg">
 					<h5>{{product.name}}</h5>
 					<hr />
 					<div class="caption">
@@ -91,7 +91,13 @@ body {
 
 			</div>
 
-		
+			<div class="col-sm-4 col-lg-4 col-md-4">
+				<h4>Checkout more products!</h4>
+				<hr />
+				<a class="btn btn-primary" href="${contextRoot}/show/all/products">More
+					Products</a>
+			</div>
+
 		</div>
 
 		<div class="row">
@@ -102,9 +108,10 @@ body {
 		</div>
 		<div class="row is-table-row">
 
-			<div class="col-sm-3" ng-repeat="product in pCtrl.mpProducts">
+			<div class="col-sm-4" ng-repeat="product in pCtrl.mpProducts">
 				<div class="thumbnail">
-					<img ng-src="${images}/{{product.code}}.jpg" alt="{{product.name}}">
+					<img ng-src="${images}/{{product.code}}.jpg" alt="{{product.name}}"
+						class="landingImg">
 					<h5>{{product.name}}</h5>
 					<hr />
 					<div class="caption">

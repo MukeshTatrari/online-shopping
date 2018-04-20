@@ -1,11 +1,12 @@
-<!--  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div class="list-group">
-	<c:forEach items="${categories}" var="category">
-		<a href="${contextRoot}/show/category/${category.id}/products"
-			class="list-group-item" id ="a_${category.name}"> ${category.name} </a>
-	</c:forEach>
-</div> -->
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div class="list-group">
+	<c:forEach items="${places}" var="places">
+		<a href="${contextRoot}/travel/show/${places.id}/PlaceDetails"
+			class="list-group-item" id="a_${places.name}"> ${places.name} </a>
+	</c:forEach>
+</div>
+<!--  
 <div class="list-group">
 	<ul class="list-unstyled">
 		<li><a href="${contextRoot}/places/placeDetails"
@@ -21,3 +22,4 @@
 
 	</ul>
 </div>
+-->

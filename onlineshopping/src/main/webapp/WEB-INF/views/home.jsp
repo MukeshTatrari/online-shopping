@@ -65,7 +65,7 @@
 
                 <div class="row is-table-row">
                 	
-                    <div class="col-sm-4" ng-repeat="product in pCtrl.mvProducts">                    	
+                    <div class="col-sm-3" ng-repeat="product in pCtrl.mvProducts">                    	
                         <div class="thumbnail">
                             <img ng-src="${images}/{{product.code}}.jpg" alt="{{product.name}}" class="landingImg">
                             <h5>{{product.name}}</h5>
@@ -95,7 +95,7 @@
                 </div>
                <div class="row is-table-row">
                 	
-                    <div class="col-sm-4" ng-repeat="product in pCtrl.mpProducts">                    	
+                    <div class="col-sm-3" ng-repeat="product in pCtrl.mpProducts">                    	
                         <div class="thumbnail">
                             <img ng-src="${images}/{{product.code}}.jpg" alt="{{product.name}}" class="landingImg">
                             <h5>{{product.name}}</h5>
